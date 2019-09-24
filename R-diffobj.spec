@@ -4,21 +4,19 @@
 #
 Name     : R-diffobj
 Version  : 0.2.3
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/diffobj_0.2.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/diffobj_0.2.3.tar.gz
 Summary  : Diffs for R Objects
 Group    : Development/Tools
-License  : GPL-2.0+
+License  : GPL-2.0 GPL-2.0+
 Requires: R-diffobj-lib = %{version}-%{release}
+Requires: R-crayon
+BuildRequires : R-crayon
 BuildRequires : buildreq-R
 
 %description
-# diffobj - Diffs for R Objects
-[![](https://travis-ci.org/brodieG/diffobj.svg?branch=master)](https://travis-ci.org/brodieG/diffobj)
-[![](https://codecov.io/github/brodieG/diffobj/coverage.svg?branch=master)](https://codecov.io/github/brodieG/diffobj?branch=master)
-[![](http://www.r-pkg.org/badges/version/diffobj)](https://cran.r-project.org/package=diffobj)
-[![Dependencies direct/recursive](https://tinyverse.netlify.com/badge/diffobj)](https://tinyverse.netlify.com/)
+visualization of their differences.
 
 %package lib
 Summary: lib components for the R-diffobj package.
@@ -35,13 +33,13 @@ lib components for the R-diffobj package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1560783306
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569286802
 
 %install
-export SOURCE_DATE_EPOCH=1560783306
+export SOURCE_DATE_EPOCH=1569286802
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -70,7 +68,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
