@@ -4,7 +4,7 @@
 #
 Name     : R-diffobj
 Version  : 0.3.5
-Release  : 29
+Release  : 30
 URL      : https://cran.r-project.org/src/contrib/diffobj_0.3.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/diffobj_0.3.5.tar.gz
 Summary  : Diffs for R Objects
